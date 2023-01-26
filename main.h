@@ -9,5 +9,7 @@
 
 
 int _printf(const char *format, ...);
+int handle_print(const char *fmt, int *i,
+		va_list list, char buffer[]);
 
 #endif
