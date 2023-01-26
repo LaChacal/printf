@@ -12,7 +12,7 @@ int _printf(const char *formart, ...)
 	{
 		if (seq)
 		{
-			switch(formart[i])
+			switch (formart[i])
 			{
 			case 'd':
 			case 'i':
