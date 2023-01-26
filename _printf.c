@@ -30,7 +30,10 @@ int _printf(const char *format, ...)
 		{
 			buffer[buff_ind++] = format[i];
 			if (buff_ind == BUFF_SIZE)
+			{
 				print_buffer(buffer, &buff_ind);
+				buff_ind = 0;
+			}
 			printed_chars++;
 		}
 		else
