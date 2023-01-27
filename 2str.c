@@ -1,4 +1,3 @@
-#include <stdlib.h>
 #include "main.h"
 /**
  * int2str - converts an integer to an str
@@ -22,6 +21,8 @@ char *int2str(int num)
 		num *= -1;
 		len++;
 	}
+	else
+		neg = 0;
 	str = malloc(sizeof(char) * (len + 1));
 	if (str == NULL)
 	{
@@ -46,8 +47,8 @@ char *int2str(int num)
  */
 char *uint2str(const unsigned int num)
 {
-	unsigned int len;
-	int temp, i;
+	unsigned int temp, len;
+	int i;
 	char *str;
 
 	temp = num;
@@ -76,8 +77,8 @@ char *uint2str(const unsigned int num)
  */
 char *uoct2str(const unsigned int num)
 {
-	unsigned int len;
-	int temp, i;
+	unsigned int temp, len;
+	int i;
 	char *str;
 
 	temp = num;
@@ -106,8 +107,8 @@ char *uoct2str(const unsigned int num)
  */
 char *uhex2str(const unsigned int num)
 {
-	unsigned int len;
-	int temp, i;
+	unsigned int temp, len;
+	int i;
 	char *str;
 	char hex[] = "0123456789abcdef";
 
@@ -137,8 +138,8 @@ char *uhex2str(const unsigned int num)
  */
 char *UHEX2str(const unsigned int num)
 {
-	unsigned int len;
-	int temp, i;
+	unsigned int temp, len;
+	int i;
 	char *str;
 	char hex[] = "0123456789ABCDEF";
 
@@ -159,32 +160,5 @@ char *UHEX2str(const unsigned int num)
 		str[i] = hex[(temp % 16)];
 		temp /= 16;
 	}
-	return (str);
-}
-/**
- * addr2str - converts an address to an str
- * @num: The address to convert
- * Return: the address hex in a string
- */
-char *addr2str(const char *num)
-{
-	unsigned int len;
-	int temp, i;
-	char *str;
-	char hex[] = "0123456789abcdef";
-
-	str = malloc(12 + 3);
-	if (str == NULL)
-	{
-		return (str);
-	}
-	str[15] = '\0';
-	for (i = 0; i < (6); i++)
-	{
-		str[i * 2]          = hex[num[i + 1] / 16];
-		str[(i * 2) + 1]    = hex[num[i + 1] % 16];
-	}
-	str[0] = '0';
-	str[1] = 'x';
 	return (str);
 }
